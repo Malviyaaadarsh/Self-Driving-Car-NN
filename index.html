@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<head>
+    <title>Self-driving car - No libraries</title>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div class="main">
+        <div class="window">
+            <span>Road Simulation</span>
+<canvas id="carCanvas"></canvas>
+        </div>
+    
+    <div id="verticalButtons">
+        <button onclick="reloadPage()">Reload Car</button>
+        <button onclick="save()">Save Output</button>
+        <button onclick="discard()">Delete Output</button>
+        <div class='dropdown'>
+            Select Mutation Amount
+            <select name="mutationAmount" id="mutationAmount" 
+                onchange="localStorage.setItem('mutationAmount',this.value)">
+                <option value="0.1">0.1</option>
+                <option value="0.2">0.2</option>
+                <option value="0.3">0.3</option>
+                <option value="0.4">0.4</option>
+                <option value="0.5" selected>0.5</option>
+                <option value="0.6">0.6</option>
+                <option value="0.7">0.7</option>
+                <option value="0.8">0.8</option>
+                <option value="0.9">0.9</option>
+                <option value="1.0">1.0</option>
+            </select>
+        </div>
+        <div class='dropdown'>
+            Select Car Count
+            <select name="carCount" id="carCount" 
+                onchange="localStorage.setItem('carCount',this.value)">
+                <option value="1" selected>1</option>
+                <option value="10">10</option>
+                <option value="10">30</option>
+                <option value="100">50</option>
+                <option value="100">100</option>
+                <option value="100">400</option>
+                <option value="1000">1000</option>
+            </select>
+        </div>
+    </div>
+    <div class="window">
+        <span>Neural Network Visualization</span>
+ <canvas id="networkCanvas"></canvas>
+    </div>
+   
+    <hr>
+    <div>
+        <h1>Self-Driving Car Simulation</h1>
+        <p>⚠️The Project is still under active development. Features may change soon. </p>
+    <p>This is a 2D simulation of self-driving cars using neural networks.This project shows a basic implementation of a three-layered neural network to determine car movement with controls. For more Information , click the buttons below :  </p>
+ <div class="about">
+        <button>Click to read Documentation</button>
+        <a href="details.html"> <button>Project Details</button></a>
+        <button>Source & Citations</button>
+        <button>Learnings Found</button>
+        <button>Resources used</button>
+        <button>Future Plans</button>
+    </div>
+</div>
+    
+    </div>
+
+   <script>
+     function reloadPage() {
+            try {
+                location.reload(); // Reloads the page
+            } catch (error) {
+                console.error("Error reloading page:", error);
+                alert("Unable to reload the page.");
+            }
+        }
+   </script>
+    <script src="scripts/nnvisualizer.js"></script>
+    <script src="scripts/nn.js"></script>
+    <script src="scripts/sensor.js"></script>
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/road.js"></script>
+    <script src="scripts/car-controls.js"></script>
+    <script src="scripts/testcar.js"></script>
+    <script src="scripts/mainscript.js"></script>
+</body>
+</html>
